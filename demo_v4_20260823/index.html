@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lavella Hair | Weston</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="refine.css">
+  <link rel="stylesheet" href="v9.css">
+</head>
+<body>
+  <a class="skip" href="#choose">Skip to choices</a>
+  <header><img src="assets/final/lavella-logo.png" alt="Lavella Hair"><span>Independent concept preview</span><a href="#book">Booking options ↗</a></header>
+  <main>
+    <section class="opening">
+      <div class="intro"><p>Weston · Hertfordshire</p><h1>A place for a considered change.</h1><p>Colour, extensions and hair replacement, with the right starting point before you book.</p></div>
+      <figure class="opening-image"><img src="assets/final/lavella-gallery-4-expanded-v2.png" alt="Lavella Hair styling stations and branded studio wall"><figcaption><span>Fairclough Hall Farm</span><span>01 / Enter</span></figcaption></figure>
+    </section>
+    <section class="casework" aria-label="Selected Lavella hair work">
+      <div class="casework-heading"><p class="kicker">Selected work</p><h2>Colour, movement and detail — together.</h2></div>
+      <div class="case-gallery">
+        <figure><img src="assets/final/lavella-public-colour-20260811.jpg" alt="Deep red styled hair shared by Lavella Hair on its public Instagram"><figcaption>Colour</figcaption></figure>
+        <figure><img src="assets/final/lavella-public-braids-20260817.jpg" alt="Long brunette styled hair shared by Lavella Hair on its public Instagram"><figcaption>Extensions &amp; styling</figcaption></figure>
+      </div>
+    </section>
+    <section class="choose" id="choose">
+      <div class="choose-intro"><p class="kicker">A consultation index</p><h2>Begin with the question that matters to you.</h2><p>Three routes. One live booking menu.</p></div>
+      <div class="choices" aria-label="Appointment paths">
+        <article class="choice-item"><span>01</span><h3>Colour</h3><p>Ready to select a colour appointment? The live menu is the clearest next step.</p><em>Choose a colour service</em></article>
+        <article class="choice-item"><span>02</span><h3>Extensions</h3><p>Start with a conversation about your hair, lifestyle and desired result.</p><em>Start with a conversation</em></article>
+        <article class="choice-item"><span>03</span><h3>Hair replacement</h3><p>Use the dedicated women’s system consultation on the live booking page.</p><em>Use the dedicated consultation</em></article>
+      </div>
+    </section>
+    <section class="studio"><figure><img src="assets/final/lavella-gallery-3-enhanced-v2.png" alt="Lavella Hair public reception with Lavella sign"></figure><div><p class="kicker">The studio</p><h2>Details can stay live. The first impression should feel clear.</h2><p>Lavella’s existing Ovatu page holds the current services, appointment lengths and available times.</p></div></section>
+    <section class="book" id="book">
+      <div><p class="kicker">When you are ready</p><h2>Choose here.<br>Book where it stays current.</h2></div>
+      <div class="book-action"><div class="booking-status"><span>Live handoff</span><span>Ovatu booking</span></div><a href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">Open current booking options <b>↗</b></a><dl><div><dt>Visit</dt><dd>Fairclough Hall Farm<br>Halls Green, Weston, Hitchin<br>SG4 7DP</dd></div><div><dt>Customer reviews</dt><dd><a href="https://lavellahairlimited.book.app/reviews" target="_blank" rel="noopener noreferrer">411 on the public profile ↗</a></dd></div><div><dt>Hours &amp; availability</dt><dd><a href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">View current times on Ovatu ↗</a></dd></div></dl><small>Booking and cookie preferences are managed on Lavella’s existing Ovatu page.</small></div>
+    </section>
+    <section class="visit"><div><p class="kicker">Lavella Hair, Weston</p><h2>Fairclough Hall Farm</h2><p>Halls Green, Weston, Hitchin, SG4 7DP</p></div><figure><img src="assets/final/lavella-gallery-5-enhanced-v2.png" alt="Lavella Hair public studio corridor"></figure></section>
+  </main>
+  <footer><span>Lavella Hair</span><span>Colour · Extensions · Hair replacement</span></footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script>
+    (() => {
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches || !window.gsap) return;
+      const image = document.querySelector('.opening-image img');
+      gsap.timeline().from('header>*',{opacity:0,y:-12,stagger:.08,duration:.45}).from('.intro>*',{opacity:0,y:22,stagger:.11,duration:.6},'-.1').from('.opening-image',{clipPath:'inset(0 0 100% 0)',duration:1.05,ease:'power3.inOut'},'-.45').from('.opening-image figcaption',{opacity:0,y:14,duration:.4},'-.2');
+      const observer = new IntersectionObserver(entries => entries.forEach(({isIntersecting,target}) => { if (!isIntersecting) return; gsap.from(target,{opacity:0,y:28,duration:.65,ease:'power2.out'}); observer.unobserve(target); }),{threshold:.14});
+      document.querySelectorAll('.casework,.choose,.studio,.book,.visit').forEach(item => observer.observe(item));
+      document.querySelectorAll('.choices article').forEach((item,index) => {
+        item.addEventListener('mouseenter',() => gsap.to(item,{y:-10,duration:.28,ease:'power2.out'}));
+        item.addEventListener('mouseleave',() => gsap.to(item,{y:0,duration:.3,ease:'power2.out'}));
+        gsap.from(item,{opacity:0,y:36,delay:index*.09,duration:.55,ease:'power2.out',scrollTrigger:undefined});
+      });
+      let ticking=false; addEventListener('scroll',() => { if (ticking) return; ticking=true; requestAnimationFrame(() => { image.style.transform=`translateY(${Math.min(scrollY*.08,42)}px) scale(1.03)`; ticking=false; }); },{passive:true});
+    })();
+  </script>
+</body>
+</html>

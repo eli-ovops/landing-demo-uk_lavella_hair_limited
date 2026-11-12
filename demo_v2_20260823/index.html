@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Lavella Hair concept preview for colour and consultation-led hair solutions." />
+    <title>Lavella Hair | Colour consultations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Ccircle cx='4' cy='4' r='4' fill='%2319201d'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Lavella Hair home"><img src="assets/final/lavella-logo.png" alt="Lavella Hair" /></a>
+      <span class="preview">Independent concept preview</span>
+      <a class="nav-book" href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">Book online</a>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="kicker reveal-copy">Lavella Hair consultations</p>
+          <h1 id="hero-title" class="reveal-copy">Colour decisions deserve a proper starting point.</h1>
+          <p class="lede reveal-copy">A clear route into colour, hair extensions and hair replacement consultations in Weston.</p>
+          <a class="button reveal-copy" href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">Start with a consultation <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure class="hero-study"><img src="assets/final/lavella-colour-study-concept.png" alt="Abstract study of flowing dark hair-like fibres and mineral green colour ribbons" /></figure>
+      </section>
+
+      <section class="reason" aria-labelledby="reason-title">
+        <div class="reason-copy"><p class="kicker">Before booking</p><h2 id="reason-title">Choose the conversation, not just a time slot.</h2><p>Lavella’s current booking journey offers Colouring, Hair Extensions and Replacement Solutions. The latter two begin with a consultation so the next step can reflect your hair, lifestyle and preferred result.</p></div>
+        <figure class="salon-image"><img src="assets/final/lavella-salon-space.jpg" alt="Lavella Hair salon wash and styling area" /></figure>
+      </section>
+
+      <section class="consultations" aria-labelledby="consultations-title">
+        <div class="section-title"><p class="kicker">The appointment routes</p><h2 id="consultations-title">A practical way in.</h2></div>
+        <div class="consult-grid">
+          <article class="consult-card"><span>Colour</span><p>Use the live booking service to select the colour appointment that suits your visit.</p><a href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">Start with a consultation <span aria-hidden="true">↗</span></a></article>
+          <article class="consult-card contrast"><span>Hair extensions</span><p>The public booking description starts with an assessment of your hair, lifestyle and desired result.</p><a href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">Start with a consultation <span aria-hidden="true">↗</span></a></article>
+          <article class="consult-card"><span>Hair replacement</span><p>Use the dedicated women’s hair replacement system consultation to discuss the most suitable way forward.</p><a href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">Start with a consultation <span aria-hidden="true">↗</span></a></article>
+        </div>
+      </section>
+
+      <section class="booking-route" aria-labelledby="route-title"><p class="kicker">Existing online booking</p><h2 id="route-title">When you are ready, the booking stays with Lavella.</h2><p>The appointment link opens Lavella Hair’s current online booking service. There is no recreated checkout or booking form here.</p><a class="button dark" href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">Start with a consultation <span aria-hidden="true">↗</span></a></section>
+
+      <section class="location" aria-labelledby="location-title"><img src="assets/final/lavella-location-sketch.jpg" alt="" aria-hidden="true" /><div class="location-content"><p class="kicker">Find Lavella Hair</p><h2 id="location-title">Fairclough Hall Farm</h2><p>Halls Green, Weston, Hitchin, SG4 7DP</p><p class="small">411 reviews shown on Lavella’s booking profile, checked 23 August 2026.</p><a href="https://lavellahairlimited.book.app/book-now" target="_blank" rel="noopener noreferrer">Start with a consultation <span aria-hidden="true">↗</span></a></div></section>
+    </main>
+    <footer><span>Lavella Hair</span><span>Colour, extensions and consultation-led hair solutions</span></footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script>
+      (() => {
+        if (!window.gsap || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const hero = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        hero.from('.hero-study', { autoAlpha: 0, scale: 0.97, duration: 0.56, delay: 0.12 })
+          .from('.reveal-copy', { autoAlpha: 0, y: 18, duration: 0.34, stagger: 0.07, ease: 'power2.out' }, '-=0.34');
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            gsap.from(entry.target, { autoAlpha: 0, y: 20, duration: 0.42, ease: 'expo.out' });
+            obs.unobserve(entry.target);
+          });
+        }, { threshold: 0.22 });
+        document.querySelectorAll('.consult-card, .booking-route, .location-content').forEach((item) => observer.observe(item));
+      })();
+    </script>
+  </body>
+</html>
